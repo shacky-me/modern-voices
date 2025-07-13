@@ -1,5 +1,7 @@
+import React from "react";
+
 const SPAPage = () => {
-  return <div></div>;
+  return <div>SPAPage</div>;
 };
 
 export default SPAPage;
