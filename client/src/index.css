@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+body {
+  background-color: #f0f4f8;
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+.ql-container {
+  border: none !important;
+  /* padding: 70px !important; */
+}
+
+.ql-toolbar {
+  border: none !important;
+}
+
+.ql-editor {
+  border: none !important;
+}
