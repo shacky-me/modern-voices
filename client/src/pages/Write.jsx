@@ -1,11 +1,24 @@
-import { useUser } from "@clerk/clerk-react";
-import React from "react";
+import { useAuth, useUser } from "@clerk/clerk-react";
+import React, { useState } from "react";
 import "react-quill-new/dist/quill.snow.css";
 import ReactQuill from "react-quill-new";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 const Write = () => {
   const { isLoaded, isSignedIn } = useUser();
-
+  const [value, setValue] = useState("");
+  const { getToken } = useAuth();
+  const mutation = useMutation({
+    mutationFn: async (newPost) => {
+      const token = await getToken();
+      return axios.post(`${import.meta.env.VITE_API_URL}/posts`, newPost, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    },
+  });
   if (!isLoaded) {
     return <div className="">Loading...</div>;
   }
@@ -17,11 +30,28 @@ const Write = () => {
       </div>
     );
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    const data = {
+      title: formData.get("title"),
+      description: formData.get("description"),
+      category: formData.get("category"),
+      content: value,
+    };
+
+    console.log(data);
+
+    mutation.mutate(data);
+  };
+
   // Render the write page content if the user is signed in
   return (
     <div className="h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] flex flex-col gap-6 flex-1 mb-6">
       <h1 className="text-xl font-light">Create a New Post</h1>
-      <form className="flex flex-col gap-6">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         <button className="w-max p-2 shadow-md text-sm text-gray-500 rounded-xl">
           Add a cover image
         </button>
@@ -29,13 +59,14 @@ const Write = () => {
           className="text-4xl font-semibold bg-transparent outline-none"
           type="text"
           placeholder="My Awesome story"
+          name="title"
         />
         <div className="flex items-center gap-4">
           <label htmlFor="" className="text-sm">
             Choose a category:
           </label>
           <select
-            name="cat"
+            name="category"
             id=""
             className="p-2 rounded-xl bg-white shadow-md"
           >
@@ -48,13 +79,15 @@ const Write = () => {
           </select>
         </div>
         <textarea
-          name="desc"
+          name="description"
           placeholder="Tell your story..."
           className="p-4 rounded-xl bg-white shadow-md"
         />
         <ReactQuill
           theme="snow"
           className="flex-1 rounded-xl bg-white shadow-md"
+          value={value}
+          onChange={setValue}
         />
         <button
           type="submit"

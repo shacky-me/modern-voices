@@ -30,7 +30,7 @@ const HomePage = () => {
             viewBox="0 0 400 200"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="w-full h-auto max-w-2xl mx-auto"
+            className="w-full h-auto max-w-2xl mx-auto"
           >
             <defs>
               <linearGradient
@@ -40,8 +40,8 @@ const HomePage = () => {
                 x2="100%"
                 y2="100%"
               >
-                <stop offset="0%" stop-color="#8B5CF6" /> {/* Purple-500 */}
-                <stop offset="100%" stop-color="#6366F1" /> {/* Indigo-500 */}
+                <stop offset="0%" stopColor="#8B5CF6" /> {/* Purple-500 */}
+                <stop offset="100%" stopColor="#6366F1" /> {/* Indigo-500 */}
               </linearGradient>
               <linearGradient
                 id="gradientBottom"
@@ -50,8 +50,8 @@ const HomePage = () => {
                 x2="100%"
                 y2="100%"
               >
-                <stop offset="0%" stop-color="#4F46E5" /> {/* Indigo-600 */}
-                <stop offset="100%" stop-color="#3B82F6" /> {/* Blue-500 */}
+                <stop offset="0%" stopColor="#4F46E5" /> {/* Indigo-600 */}
+                <stop offset="100%" stopColor="#3B82F6" /> {/* Blue-500 */}
               </linearGradient>
               <linearGradient
                 id="gradientSpark"
@@ -60,21 +60,21 @@ const HomePage = () => {
                 x2="100%"
                 y2="100%"
               >
-                <stop offset="0%" stop-color="#FDE68A" /> {/* Amber-200 */}
-                <stop offset="100%" stop-color="#FBBF24" /> {/* Amber-400 */}
+                <stop offset="0%" stopColor="#FDE68A" /> {/* Amber-200 */}
+                <stop offset="100%" stopColor="#FBBF24" /> {/* Amber-400 */}
               </linearGradient>
             </defs>
 
             <path
               d="M0 100 C 50 150, 150 200, 200 170 C 250 140, 350 100, 400 120 V 200 H 0 Z"
               fill="url(#gradientBottom)"
-              class="opacity-70 transition-all duration-700 ease-in-out hover:scale-103 transform"
+              className="opacity-70 transition-all duration-700 ease-in-out hover:scale-103 transform"
             />
 
             <path
               d="M0 80 C 50 120, 150 170, 200 150 C 250 130, 350 90, 400 100 V 200 H 0 Z"
               fill="url(#gradientTop)"
-              class="opacity-85 transition-all duration-700 ease-in-out hover:scale-103 transform"
+              className="opacity-85 transition-all duration-700 ease-in-out hover:scale-103 transform"
             />
 
             <line
@@ -83,9 +83,9 @@ const HomePage = () => {
               x2="180"
               y2="20"
               stroke="url(#gradientSpark)"
-              stroke-width="3"
-              stroke-linecap="round"
-              class="origin-center transition-transform duration-1000 ease-in-out hover:rotate-3"
+              strokeWidth="3"
+              strokeLinecap="round"
+              className="origin-center transition-transform duration-1000 ease-in-out hover:rotate-3"
             />
             <line
               x1="150"
@@ -93,9 +93,9 @@ const HomePage = () => {
               x2="250"
               y2="40"
               stroke="url(#gradientSpark)"
-              stroke-width="3"
-              stroke-linecap="round"
-              class="origin-center transition-transform duration-1000 ease-in-out hover:rotate-6"
+              strokeWidth="3"
+              strokeLinecap="round"
+              className="origin-center transition-transform duration-1000 ease-in-out hover:rotate-6"
             />
             <line
               x1="200"
@@ -103,9 +103,9 @@ const HomePage = () => {
               x2="300"
               y2="50"
               stroke="url(#gradientSpark)"
-              stroke-width="3"
-              stroke-linecap="round"
-              class="origin-center transition-transform duration-1000 ease-in-out hover:rotate-9"
+              strokeWidth="3"
+              strokeLinecap="round"
+              className="origin-center transition-transform duration-1000 ease-in-out hover:rotate-9"
             />
 
             <circle
@@ -113,21 +113,21 @@ const HomePage = () => {
               cy="20"
               r="5"
               fill="url(#gradientSpark)"
-              class="opacity-70 transition-opacity duration-700 ease-in-out hover:opacity-100"
+              className="opacity-70 transition-opacity duration-700 ease-in-out hover:opacity-100"
             />
             <circle
               cx="250"
               cy="40"
               r="5"
               fill="url(#gradientSpark)"
-              class="opacity-70 transition-opacity duration-700 ease-in-out hover:opacity-100"
+              className="opacity-70 transition-opacity duration-700 ease-in-out hover:opacity-100"
             />
             <circle
               cx="300"
               cy="50"
               r="5"
               fill="url(#gradientSpark)"
-              class="opacity-70 transition-opacity duration-700 ease-in-out hover:opacity-100"
+              className="opacity-70 transition-opacity duration-700 ease-in-out hover:opacity-100"
             />
           </svg>
           <button className="absolute top-0 left-0 right-0 bottom-0 m-auto w-20 h-20 bg-blue-800 rounded-full flex items-center justify-center">
